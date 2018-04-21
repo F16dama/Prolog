@@ -2,10 +2,20 @@
 % Date: 4/19/2018
 
 natSym(o).
-natSymb(X).
+natSym(s(X)).
 
-lessequ(o, X) :- natSymb(X).
-lessequ(s(X),s(Y)) :- lessequ(X,Y).
+lessequ(o, X) :- natSym(X).
+lessequ(s(X),s(Y)) :- lessequ(X,Y), natSym(X), natSym(Y).
 
-add(o,X,X) .
-add(s(X),Y,s(R)) :- add(X,Y,R).
+add(o,X,X) :- natSym(X).
+add(s(X),Y,s(R)) :- add(X,Y,R), natSym(Y), natSym(R).
+
+sub(X,o,X ) :- natSym(X).
+sub(s(X), s(Y), R):- sub(X,Y,R), natSym(Y), natSym(R).
+
+mult(X,o,o) :- natSym(X).
+mult(X,s(Y),R) :-   mult(X,Y, Zwischen), add(Zwischen, X, R), natSym(Y), natSym(R).
+
+
+eqZero(X) :- X == o, natSym(X).
+neqZero(X) :- X \= o, natSym(X).
