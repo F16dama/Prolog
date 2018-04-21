@@ -8,3 +8,5 @@ ast(b, g(d)).
 ast(c, f(a,b)).
 
 baum(b, baum(d, nil)).
+
+tiefe(X, s(Y)):- baum(X, K), tiefe(K, Y) .
