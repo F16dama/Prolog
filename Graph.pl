@@ -22,5 +22,6 @@ weg(X,Y) :- connection(X,Y).
 weg(X,Y) :- X ==Y.
 
 
+wegLaenge(X,X,list(X,nil), o).
+wegLaenge(X,Y,list(X,Rest), s(L)) :-   connection(X,K), wegLaenge(K,Y, Rest,L), natSym(L).
 
-wegLaenge(X,Y,s(L)) :-   weg(X,K), weg(K,Y) , wegLaenge(X,Y, L).
