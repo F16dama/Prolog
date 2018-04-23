@@ -28,3 +28,4 @@ sohn(Y,X) :- mutter(X,Y),männlich(Y) .
 tochter(Y,X) :- vater(X,Y),weiblich(Y).
 tochter(Y,X) :- mutter(X,Y),weiblich(Y).
 bruder(X,Y) :- männlich(X), vater(Par,X),vater(Par,Y).
+bruder(X,Y) :- männlich(X), mutter(Par,X),mutter(Par,Y).

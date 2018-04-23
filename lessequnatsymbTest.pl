@@ -17,11 +17,10 @@ mult(X,o,o) :- natSym(X).
 mult(X,s(Y),R) :-   mult(X,Y, Zwischen), add(Zwischen, X, R), natSym(Y), natSym(R).
 
 
-eqZero(X):- add(X, s(o),s(o)).
-neqZero(X):- not(eqZero(X)).
+%eqZero(X):- add(X, s(o),s(o)).
+eqZero(o).
+%neqZero(X):- add(X, o, s(_)).
+neqZero(s(X)):- natSym(X).
 
-less(X,s(Y)):- less(o,Y) .
+less(X,Y):- add(X,R, Y), neqZero(R) .
 square(X,Y) :- mult(X,X,Y).
-
-%eqZero(X) :- X == o, natSym(X).
-%neqZero(X) :- X \= o, natSym(X).

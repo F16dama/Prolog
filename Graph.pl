@@ -18,10 +18,13 @@ connection(c,d).
 connection(e,c).
 connection(e,d).
 
-weg(X,Y) :- connection(X,Y).
-weg(X,Y) :- X ==Y.
+%weg(X,Y) :- connection(X,Y).
+%weg(X,Y) :- X ==Y.
+weg(X,X).
+weg(X,Y):- weg(X,K), connection(K,Y).
 
+%wegLaenge(X,X,list(X,nil), o).
+%wegLaenge(X,Y,list(X,R), s(L)) :-   connection(X,K), wegLaenge(K,Y, R,L), natSym(L).
 
-wegLaenge(X,X,list(X,nil), o).
-wegLaenge(X,Y,list(X,Rest), s(L)) :-   connection(X,K), wegLaenge(K,Y, Rest,L), natSym(L).
+wegLaenge(X,X,o).
 
