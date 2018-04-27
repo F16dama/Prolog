@@ -23,8 +23,9 @@ connection(e,d).
 weg(X,X).
 weg(X,Y):- weg(X,K), connection(K,Y).
 
-%wegLaenge(X,X,list(X,nil), o).
-%wegLaenge(X,Y,list(X,R), s(L)) :-   connection(X,K), wegLaenge(K,Y, R,L), natSym(L).
+%wegLaenge(X,X,list(X,nil)).
+%wegLaenge(X,Y,list(X,R)) :-   connection(X,K), wegLaenge(K,Y, R).
 
 wegLaenge(X,X,o).
+wegLaenge(X,Y, s(L)) :- connection(X,Irgend), wegLaenge(Irgend,Y, L).
 
