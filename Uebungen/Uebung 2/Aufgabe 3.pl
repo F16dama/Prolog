@@ -11,7 +11,7 @@ mult(X, o, o).
 mult(X, s(Y), R):- mult(X,Y, Zwischen), add(Zwischen, X, R).
 
 %Aufgabenteil a
-%X hoch Y ergibt R
+%(X hoch Y) *X
 exp(X, o, s(o)):- natSym(X).
 exp(X,s(Y),R) :-   exp(X,Y,K) ,mult(K, X,R), natSym(X), natSym(Y), natSym(R).
 

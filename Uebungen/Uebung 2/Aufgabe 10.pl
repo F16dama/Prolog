@@ -3,13 +3,12 @@
 natSym(o).
 natSym(s(X)).
 
-add(X,o,X):- natSym(X).
-add(X,s(Y), s(R)):- add(X,Y,R), natSym(X) ,natSym(Y) ,natSym(R).
-
-natList(list(X, nil)):- natSym(X).
+natList(nil):- natSym(X).
 natList(list(X,Rest)):- natSym(X), natList(Rest).
 
-
-
+invList(nil).
 invList(list(o,nil)).
-invList(list(s(X),Rest)):- invList(Rest).
+invList(list(s(Y),list(Y,Rs))):- invList(list(Y,Rs)).
+
+%invList(list(o,nil)).
+%invList(list(s(X),Rest)):- invList(Rest).

@@ -17,10 +17,11 @@ append(nil,list(Y,Ys),list(Y,Rs)):- append(nil, Ys ,Rs).
 append(list(X,nil),list(Y,Ys),list(X,Rs)):- append(nil,list(Y,Ys),Rs).
 append(list(X,Xs),list(Y,Ys),list(X,Rs)):- append(Xs,list(Y,Ys),Rs).
 
+app(nil,Ys,Ys).
+app(list(X,Xs),Ys,list(X,Rs)):- app(Xs,Ys,Rs).
 
 
-
-anothTest(list(X,nil),list(X,nil)).
-anothTest(list(X,Xs),list(X,Rs)):- anothTest(Xs,Rs).
+anotherTest(list(X,nil),list(X,nil)).
+anotherTest(list(X,Xs),list(X,Rs)):- anotherTest(Xs,Rs).
 
 
