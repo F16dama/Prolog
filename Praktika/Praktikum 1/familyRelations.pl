@@ -29,6 +29,11 @@ elternteil(dirk, lisa).
 elternteil(andreas, niklas).
 elternteil(andreas, marvin).
 
+%X ist vater von Y
+vater(X,Y):- maennlich(X), elternteil(X,Y).
+%X ist mutter von Y
+mutter(X,Y):- weiblich(X), elternteil(X,Y).
+
 %X ist Sohn von Y
 sohn(X,Y):- maennlich(X), elternteil(Y,X).
 

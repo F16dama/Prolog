@@ -27,7 +27,7 @@
 % Qsub = app(list(Z3,list(a,Z2s)),nil,list(Z3,list(Z4,nil)))
 
 %Beh: sub ist allgemeiner als sub'
-% Zeige Es gibt ein sub'', so dass gilt: sub' = sub subb''
+% Zeige Es gibt ein sub'', so dass gilt: sub' = sub sub''
 
 %sub' = [X/a,Z1/a,X1s/list(a,nil),Z2s/nil,Ys/nil, Z3/a, X2s/list(a,nil),Z4/a]
 %sub'' = [Z3/a, Z2s/nil, Z4/a]
