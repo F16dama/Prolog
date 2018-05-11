@@ -23,4 +23,4 @@ binbaum(n(X,Xb,Yb)):- binbaum(Xb), binbaum(Yb).
 construct(Root,Lb,Rb,n(Root,Lb,Rb)):- binbaum(Lb), binbaum(Rb) .
 
 knotenanz(e, o).
-knotenanz(n(X,Lb,Rb), s(N)):- knotenanz(Lb,Ln), knotenanz(Rb,Rn), add(Ln,Rn,N).
+knotenanz(n(X,Lb,Rb), s(N)):- knotenanz(Lb,Ln), knotenanz(Rb,Rn), add(Ln,Rn,R1), add(s(o),R1,N).
