@@ -7,16 +7,23 @@ binbaum(n(X,Lb,Rb)):- binbaum(Lb), binbaum(Rb).
 natSym(o).
 natSym(s(X)).
 
-max(X,Y,Y):- X =< Y.
-max(X,Y,X):- Y =< X.
+%max(X,Y,Y):- X =< Y.
+%max(X,Y,X):- Y =< X.
+max(o,X,X).
+max(X,o,X).
+max(s(X),s(Y),s(R)):- max(X,Y,R).
+
 
 add(o,X,X).
 add(s(X),Y,s(R)):- add(X,Y,R).
 
-height(e,0).
-height(n(_,Lb,Rb), N):- height(Lb,Ln),height(Rb,Rn), N is 1 + max(Ln,Rn) .
+%height(e,0).
+%height(n(_,Lb,Rb), N):- height(Lb,Ln),height(Rb,Rn), N is 1 + max(Ln,Rn) .
+height(e,o).
+height(n(_,Lb,Rb), N):- height(Lb,Ln),max(Ln,Rn,Mn), height(Rb,Rn),add(s(o),Mn,N) .
 
-functs(e,0).
-functs(n(_,Lb,Rb),N):- functs(Lb,L1),functs(Rb,R1), N is 1 + R1 + L1.
+functs(e,o).
+functs(n(_,Lb,Rb),s(N)):- functs(Lb,L1),add(L1,R1,N),functs(Rb,R1).
 
-varcons().
+varcons(e,s(o)).
+varcons(n(_,Lb,Rb),s(N)):- varcons(Lb,L1),add(L1,R1,N),varcons(Rb,R1).
