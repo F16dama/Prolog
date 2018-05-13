@@ -1,9 +1,9 @@
 % Author:
 % Date: 5/9/2018
 
-listlength([], o).
-listlength([X|Xs],s(N)):- listlength(Xs,N).
+listlength([], 0).
+listlength([X|Xs],N):- listlength(Xs,R),  N is R + 1.
 
-anz(X,[],o).
-anz(X, [X|Xs],s(N)):- anz(X,Xs,N).
+anz(X,[],0).
+anz(X, [X|Xs],N):- anz(X,Xs,R), N is R +1.
 anz(X, [Y|Xs],N):- anz(X,Xs,N).

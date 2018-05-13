@@ -10,6 +10,8 @@ natSym(s(X)).
 max(X,Y,Y):- X =< Y.
 max(X,Y,X):- Y =< X.
 
+add(o,X,X).
+add(s(X),Y,s(R)):- add(X,Y,R).
 
 height(e,0).
 height(n(_,Lb,Rb), N):- height(Lb,Ln),height(Rb,Rn), N is 1 + max(Ln,Rn) .
