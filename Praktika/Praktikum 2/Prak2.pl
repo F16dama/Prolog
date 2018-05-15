@@ -14,10 +14,12 @@ praefix(list(X,nil),list(X,Ys)).
 praefix(list(X,Xs),list(X,Ys)):- praefix(Xs,Ys).
 
 %List(X,Xs) ist in Ys vorhanden
+%infix(nil, Ys).
+%infix(list(X,Xs), list(X,Ys)):- infix(Xs,Ys).
+%infix(Xs, list(Y,Ys)):- infix(Xs,Ys).
 infix(nil, Ys).
-infix(list(X,Xs), list(X,Ys)):- infix(Xs,Ys).
+infix(list(X,Xs), list(X,Ys)):- praefix(list(X,Xs),list(X,Ys)).
 infix(Xs, list(Y,Ys)):- infix(Xs,Ys).
-
 
 % Aufgabe 2
 

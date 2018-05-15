@@ -1,0 +1,20 @@
+Idee: ich gehe von binaeren Relationen aus z.B. kante(x,y).
+
+- weg(X,X). % kein Schrit, reflexiv
+  weg(X,Y):- kante(X,H),weg(H,Y). %n+1 Schritte, transitiv
+
+- elter(X,Y). % X ist elternteil von Y
+  %vorfahre(X,Y): X ist vorfahre von Y
+  vorfahre(X,Y):- elter(X,Y).
+  vorfahre(X,Y):- elter(X,R), vorfahre(R,Y).
+  % vorfahre ist transitiver Abschluss von elter (1,2,..)
+
+%Allgemein
+Relation p(X,Y)
+ pRefTrans(X,Y) ist reflexiv-transitiver abschluss
+pRefTrans(X,X)
+pRefTrans(X,Y):- p(X,H),pRefTrans(H,Y)
+
+pTrans(X,Y) ist transitiver Abschluss
+pTrans(X,Y):- p(X,Y).
+pTrans(X,Y):- p(X,H), pTrans(H,Y).
