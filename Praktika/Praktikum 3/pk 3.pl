@@ -8,7 +8,9 @@ praefix([X],[X|Ys]).
 praefix([X|Xs],[X|Ys]):- praefix(Xs,Ys).
 
 %Ys endet mit der Liste Xs
-postfix(Xs,Ys):- reverse(Ys,Rys), reverse(Xs,Rxs), praefix(Rxs,Rys).
+postfixR(Xs,Ys):- reverse(Ys,Rys), reverse(Xs,Rxs), praefix(Rxs,Rys).
+
+postfixA(Xs,Ys):- append(Hs,Xs,Ys).
 
 
 %Aufgabe 2
