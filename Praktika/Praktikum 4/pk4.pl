@@ -32,8 +32,8 @@ endZ(z3).
 
 %b
 
-delta_stern(Z,[],Z):- ez(Z), delta(Z,[],Z).
-delsta_stern(Z,[A|Ws],ZStrich):- delta(Z,A,ZStern), delta_stern(ZStern, Ws,ZStrich).
+delta_stern(Z,[],Z):- eZ(Z), delta(Z,[],Z).
+delta_stern(Z,[A|Ws],ZStrich):- delta(Z,A,ZStern), delta_stern(ZStern, Ws,ZStrich).
 
 sigma_stern([]).
 sigma_stern([A|Ws]):- sigma(A), sigma_stern(Ws).
