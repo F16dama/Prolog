@@ -11,6 +11,7 @@
 
 states(s0).
 states(s1).
+states(s2).
 
 sigma(a).
 sigma(b).
@@ -18,15 +19,28 @@ sigma(b).
 baseSigma(a).
 baseSigma(b).
 baseSigma(#).
-baseSigma(cA).
+baseSigma(sA).
+
+
+delta(s0,a,#,s0,[sA,#]).
+delta(s0,a,sA,s0,[sA,sA]).
+delta(s0,b,sA,s1,[]).
+delta(s1,b,sA,s1,[]).
+delta(s1,nix,#,s1,[]).
+
 
 startS(s0).
 
 base(#).
 
-% b
+%b
+lvonM(Ws) :- startS(Sz), base(K), es_plus(Sz, Ws, [K], Sn, Kn), sigma_stern(Ws).
 
-es().
-es_plus().
-sigma_star().
+es(S, W, [K|Ks], Sn, Kn) :- delta(S, W, K, Sn, Kr), append(Kr, Ks, Kn).
 
+es_plus(E, [], [], E, []).
+es_plus(S, Ws, Ks, Sn, Kn) :- es(S, nix, Ks, Sn, Kn), es_plus(Sn, Ws, Kn, Sn2, Kn2).
+es_plus(S, [W|Ws], Ks, Sn, Kn) :- es(S, W, Ks, Sn, Kn), es_plus(Sn, Ws, Kn, Sn2, Kn2).
+
+sigma_stern([]).
+sigma_stern([W|Ws]) :- sigma(W), sigma_stern(Ws).
