@@ -1,0 +1,13 @@
+%append liste
+app([], [X|[]],[X]).
+app([], [X|X1] , [X|R]):- app([],X1,R).
+app([Y|Y1], X , [Y|R]):- app(Y1, X,R).
+%append hinten
+happ(X, [],[X]).
+happ(X,[Y|Y1], [Y|R]):- happ(X,Y1,R).
+%append vorne
+vapp([], Y , Y).
+vapp(X,Y,[X|Y]).
+%reverse
+rev([],[]).
+rev([X|Y], R):- rev(Y,R1), happ(X,R1,R) .
